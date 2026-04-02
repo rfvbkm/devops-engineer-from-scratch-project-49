@@ -1,1 +1,14 @@
 .venv/
+**/*.pyc
+**/__pycache__/
+**/dist/
+**/build/
+**/*.egg-info/
+**/*.egg
+**/*.whl
+**/*.tar.gz
+**/*.zip
+**/*.rar
+**/*.7z
+**/*.bz2
+**/*.gz
