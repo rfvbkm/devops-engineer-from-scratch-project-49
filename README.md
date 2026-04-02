@@ -21,4 +21,10 @@
 
 ### Demo
 
+#### Brain Even
+
 [![asciicast](https://asciinema.org/a/lGqcQgHQPkl4yFY4.svg)](https://asciinema.org/a/lGqcQgHQPkl4yFY4)
+
+#### Brain Calc
+
+[![asciicast](https://asciinema.org/a/PkhaApo2HLYuwHdS.svg)](https://asciinema.org/a/PkhaApo2HLYuwHdS)
