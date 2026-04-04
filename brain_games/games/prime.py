@@ -1,9 +1,11 @@
 import random
 
-from brain_games.engine import Game
-
 MIN_NUMBER = 1
 MAX_NUMBER = 100
+
+SMALLEST_PRIME = 2
+FIRST_ODD_DIVISOR = 3
+DIVISOR_STEP = 2
 
 DESCRIPTION = (
     'Answer "yes" if given number is prime. Otherwise answer "no".'
@@ -11,17 +13,17 @@ DESCRIPTION = (
 
 
 def is_prime(n: int) -> bool:
-    if n < 2:
+    if n < SMALLEST_PRIME:
         return False
-    if n == 2:
+    if n == SMALLEST_PRIME:
         return True
-    if n % 2 == 0:
+    if n % SMALLEST_PRIME == 0:
         return False
-    divisor = 3
+    divisor = FIRST_ODD_DIVISOR
     while divisor * divisor <= n:
         if n % divisor == 0:
             return False
-        divisor += 2
+        divisor += DIVISOR_STEP
     return True
 
 
@@ -33,10 +35,3 @@ def get_round() -> tuple[str, str]:
 
 def is_correct(answer: str, correct: str) -> bool:
     return answer in ("yes", "no") and answer == correct
-
-
-GAME = Game(
-    description=DESCRIPTION,
-    get_round=get_round,
-    is_correct=is_correct,
-)

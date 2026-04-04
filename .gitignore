@@ -1,15 +1,23 @@
+# Hexlet python-package + сборка
+*.egg-info
+*.egg
+*.pyc
+__pycache__
+dist/
+build/
+*.whl
+*.tar.gz
 .venv/
-**/*.pyc
-**/__pycache__/
-**/dist/
-**/build/
-**/*.egg-info/
-**/*.egg
-**/*.whl
-**/*.tar.gz
-**/*.zip
-**/*.rar
-**/*.7z
-**/*.bz2
-**/*.gz
-**/*.cast
+.coverage
+coverage.xml
+*_cache/
+
+# Архивы
+*.zip
+*.rar
+*.7z
+*.bz2
+*.gz
+
+# Локальные записи asciinema
+*.cast

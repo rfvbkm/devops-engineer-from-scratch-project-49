@@ -1,13 +1,13 @@
 import random
 
-from brain_games.engine import Game
-
 MIN_LENGTH = 5
 MAX_LENGTH = 10
 MIN_STEP = 1
 MAX_STEP = 10
 MIN_START = 1
 MAX_START = 20
+
+HIDDEN_PLACEHOLDER = ".."
 
 DESCRIPTION = "What number is missing in the progression?"
 
@@ -32,7 +32,7 @@ def get_round() -> tuple[str, str]:
     parts: list[str] = []
     for i, value in enumerate(terms):
         if i == hidden_idx:
-            parts.append("..")
+            parts.append(HIDDEN_PLACEHOLDER)
         else:
             parts.append(str(value))
 
@@ -42,10 +42,3 @@ def get_round() -> tuple[str, str]:
 
 def is_correct(answer: str, correct: str) -> bool:
     return answer == correct
-
-
-GAME = Game(
-    description=DESCRIPTION,
-    get_round=get_round,
-    is_correct=is_correct,
-)

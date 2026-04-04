@@ -1,8 +1,6 @@
 import math
 import random
 
-from brain_games.engine import Game
-
 MIN_NUMBER = 1
 MAX_NUMBER = 100
 
@@ -19,10 +17,3 @@ def get_round() -> tuple[str, str]:
 
 def is_correct(answer: str, correct: str) -> bool:
     return answer == correct
-
-
-GAME = Game(
-    description=DESCRIPTION,
-    get_round=get_round,
-    is_correct=is_correct,
-)

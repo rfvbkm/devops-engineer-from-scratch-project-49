@@ -1,5 +1,4 @@
 from collections.abc import Callable
-from dataclasses import dataclass
 
 import prompt
 
@@ -10,25 +9,22 @@ GetRound = Callable[[], RoundPair]
 IsCorrect = Callable[[str, str], bool]
 
 
-@dataclass(frozen=True, slots=True)
-class Game:
-    description: str
-    get_round: GetRound
-    is_correct: IsCorrect
-
-
-def run_game(game: Game) -> None:
+def run_game(
+    description: str,
+    get_round: GetRound,
+    is_correct: IsCorrect,
+) -> None:
     print("Welcome to the Brain Games!")
     name = prompt.string("May I have your name? ")
     print(f"Hello, {name}!")
-    print(game.description)
+    print(description)
 
     for _ in range(ROUNDS):
-        question, correct = game.get_round()
+        question, correct = get_round()
         print(f"Question: {question}")
         answer = prompt.string("Your answer: ")
 
-        if not game.is_correct(answer, correct):
+        if not is_correct(answer, correct):
             print(
                 f"'{answer}' is wrong answer ;(. "
                 f"Correct answer was '{correct}'."
