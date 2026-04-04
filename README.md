@@ -1,5 +1,49 @@
 # devops-engineer-from-scratch-project-49
 
+## Сборка и запуск
+
+Нужны [Python](https://www.python.org/) 3.10+ и менеджер пакетов [uv](https://docs.astral.sh/uv/).
+
+После клонирования репозитория установите зависимости в виртуальное окружение (команда полезна и при первом клонировании, и если окружение сбрасывали):
+
+```bash
+make install
+# то же самое: uv sync
+```
+
+Собрать дистрибутивы пакета (wheel и sdist в каталоге `dist/`):
+
+```bash
+make build
+# то же самое: uv build
+```
+
+Запуск игр из исходников через `uv` (после `make install`):
+
+```bash
+uv run brain-games
+uv run brain-even
+uv run brain-calc
+uv run brain-gcd
+uv run brain-progression
+uv run brain-prime
+```
+
+Установка собранного wheel как CLI-утилит в окружение `uv tool` (сначала выполните `make build`):
+
+```bash
+make package-install
+# то же самое: uv tool install dist/*.whl
+```
+
+После этого команды `brain-games`, `brain-even` и остальные будут доступны в `PATH` (как правило, рядом с другими утилитами `uv`).
+
+Проверка линтером:
+
+```bash
+make lint
+```
+
 ## Badges
 
 ### Hexlet tests and linter status
