@@ -19,11 +19,16 @@ def is_answer_correct(answer: str, correct: str) -> bool:
     return answer == correct
 
 
-def run_game(game: Game) -> None:
-    description, get_round = game
+def welcome_user() -> str:
     print("Welcome to the Brain Games!")
     name = prompt.string("May I have your name? ")
     print(f"Hello, {name}!")
+    return name
+
+
+def run_game(game: Game) -> None:
+    description, get_round = game
+    name = welcome_user()
     print(description)
 
     for _ in range(ROUNDS):
