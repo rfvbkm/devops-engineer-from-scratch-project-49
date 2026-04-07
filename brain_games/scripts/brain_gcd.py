@@ -3,7 +3,7 @@ from brain_games.games import gcd
 
 
 def main() -> None:
-    run_game(gcd.DESCRIPTION, gcd.get_round, gcd.is_correct)
+    run_game(gcd.GAME)
 
 
 if __name__ == "__main__":

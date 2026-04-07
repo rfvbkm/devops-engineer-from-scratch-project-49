@@ -47,7 +47,6 @@ make build
 **Запуск из исходников** (через окружение проекта):
 
 ```bash
-uv run brain-games
 uv run brain-even
 uv run brain-calc
 uv run brain-gcd

@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from typing import TypeAlias
 
 import prompt
 
@@ -6,14 +7,20 @@ ROUNDS = 3
 
 RoundPair = tuple[str, str]
 GetRound = Callable[[], RoundPair]
-IsCorrect = Callable[[str, str], bool]
+
+Game: TypeAlias = tuple[str, GetRound]
+
+YES_OR_NO = ("yes", "no")
 
 
-def run_game(
-    description: str,
-    get_round: GetRound,
-    is_correct: IsCorrect,
-) -> None:
+def is_answer_correct(answer: str, correct: str) -> bool:
+    if correct in YES_OR_NO:
+        return answer in YES_OR_NO and answer == correct
+    return answer == correct
+
+
+def run_game(game: Game) -> None:
+    description, get_round = game
     print("Welcome to the Brain Games!")
     name = prompt.string("May I have your name? ")
     print(f"Hello, {name}!")
@@ -24,7 +31,7 @@ def run_game(
         print(f"Question: {question}")
         answer = prompt.string("Your answer: ")
 
-        if not is_correct(answer, correct):
+        if not is_answer_correct(answer, correct):
             print(
                 f"'{answer}' is wrong answer ;(. "
                 f"Correct answer was '{correct}'."

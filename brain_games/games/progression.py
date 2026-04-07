@@ -40,5 +40,4 @@ def get_round() -> tuple[str, str]:
     return question, str(hidden_value)
 
 
-def is_correct(answer: str, correct: str) -> bool:
-    return answer == correct
+GAME = (DESCRIPTION, get_round)

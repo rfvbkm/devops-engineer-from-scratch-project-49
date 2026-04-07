@@ -15,5 +15,4 @@ def get_round() -> tuple[str, str]:
     return str(number), correct
 
 
-def is_correct(answer: str, correct: str) -> bool:
-    return answer in ("yes", "no") and answer == correct
+GAME = (DESCRIPTION, get_round)
