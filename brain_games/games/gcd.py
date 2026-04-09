@@ -13,6 +13,3 @@ def get_round() -> tuple[str, str]:
     question = f"{a} {b}"
     correct = str(math.gcd(a, b))
     return question, correct
-
-
-GAME = (DESCRIPTION, get_round)

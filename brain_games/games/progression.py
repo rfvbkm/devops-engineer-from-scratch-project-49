@@ -38,6 +38,3 @@ def get_round() -> tuple[str, str]:
 
     question = " ".join(parts)
     return question, str(hidden_value)
-
-
-GAME = (DESCRIPTION, get_round)

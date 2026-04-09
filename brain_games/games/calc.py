@@ -22,6 +22,3 @@ def get_round() -> tuple[str, str]:
             raise AssertionError(f"unknown operator: {op!r}")
     question = f"{left} {op} {right}"
     return question, str(result)
-
-
-GAME = (DESCRIPTION, get_round)

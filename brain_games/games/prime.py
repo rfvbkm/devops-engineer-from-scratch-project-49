@@ -31,6 +31,3 @@ def get_round() -> tuple[str, str]:
     number = random.randint(MIN_NUMBER, MAX_NUMBER)
     correct = "yes" if is_prime(number) else "no"
     return str(number), correct
-
-
-GAME = (DESCRIPTION, get_round)

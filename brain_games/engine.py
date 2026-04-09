@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from typing import TypeAlias
+from types import ModuleType
 
 import prompt
 
@@ -7,8 +7,6 @@ ROUNDS = 3
 
 RoundPair = tuple[str, str]
 GetRound = Callable[[], RoundPair]
-
-Game: TypeAlias = tuple[str, GetRound]
 
 YES_OR_NO = ("yes", "no")
 
@@ -26,13 +24,12 @@ def welcome_user() -> str:
     return name
 
 
-def run_game(game: Game) -> None:
-    description, get_round = game
+def run_game(game: ModuleType) -> None:
     name = welcome_user()
-    print(description)
+    print(game.DESCRIPTION)
 
     for _ in range(ROUNDS):
-        question, correct = get_round()
+        question, correct = game.get_round()
         print(f"Question: {question}")
         answer = prompt.string("Your answer: ")
 
